@@ -67,7 +67,7 @@ export default function Sandbox() {
 
             const result = await response.json()
 
-            console.log(result)
+            console.log('result', result)
 
         } catch(e) {
             console.log(e.message)
@@ -155,6 +155,7 @@ export default function Sandbox() {
                 }
 
                 if(delta) {
+                    console.log('delta', delta) 
                     
                     if(delta.thread_id) {
 

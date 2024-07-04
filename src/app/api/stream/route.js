@@ -38,12 +38,14 @@ export async function POST(request) {
     const ret_message = await openai.beta.threads.messages.create(
         thread_id,
         {
-          role: 'user',
-          content: message
+            role: 'user',
+            content: message,
+            attachments: []
         }
+
     )
 
-    console.log(ret_message)
+    console.log('ret_message', ret_message)
     
     return new Response(
         new ReadableStream({
@@ -93,7 +95,7 @@ export async function POST(request) {
                         
                         } else if(event.event === 'thread.run.completed'){
     
-                            console.log(event.data.status)
+                            console.log('event.data.status when completed' , event.data.status)
 
                             is_completed = true
     
